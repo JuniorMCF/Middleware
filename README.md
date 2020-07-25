@@ -1,6 +1,6 @@
 # Middleware
 
-_Middleware desarollado en java, para paso de mensajes entre un servidor desarrollado en python, hacia clientes java.
+_Middleware desarollado en java, para paso de mensajes entre un servidor desarrollado en python, hacia clientes java._
 
 ## Instrucciones
 
