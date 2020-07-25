@@ -8,7 +8,7 @@ _Ejecutar el middleware para que se abran 2 sockets que cumpliran la funcion de 
 _Previamente debe de compilar los archivos   middleware.java con todos sus paquetes  middleware.LP1 y middleware.LP2, o ejecutarlo en algun IDE como netbeans o eclipse._
 
 ```
-**java middleware.class**
+java middleware.class
 ```
 
 _Conectar el servidor python hacia el middleware, por el puerto 4444._
