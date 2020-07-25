@@ -11,7 +11,7 @@ _Previamente debe de compilar los archivos   middleware.java con todos sus paque
 java middleware.class
 ```
 
-_Conectar el servidor python hacia el middleware, por el puerto 4444.
+_Conectar el servidor python hacia el middleware, por el puerto 4444._
 
 ```
 python3 servidor.py
