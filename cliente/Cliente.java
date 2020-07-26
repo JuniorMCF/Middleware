@@ -11,6 +11,8 @@ import cliente.TCPCliente;
 
 
 public class Cliente {
+	//String ip = "192.168.0.106";
+	String ip = "18.219.234.80";
     TCPCliente mTcpClient;
     Scanner sc;
     
@@ -26,7 +28,7 @@ public class Cliente {
 
 				@Override
 				public void run() {
-					mTcpClient = new TCPCliente("192.168.0.106",
+					mTcpClient = new TCPCliente(ip,
 						new TCPCliente.OnMessageReceived(){
 							@Override
 							public void messageReceived(String message){
