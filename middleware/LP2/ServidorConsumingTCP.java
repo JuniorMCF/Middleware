@@ -34,7 +34,10 @@ public class ServidorConsumingTCP {
     
     public void sendMessageTCPServer(String message){
         for (int i = 0; i <= Global.nrcli; i++) {
-            if(message.contains(String.valueOf(i))) sendclis[i].sendMessage(message);
+            if(message.contains(String.valueOf(i))){
+                message = message.replaceAll(String.valueOf(i),"");
+                sendclis[i].sendMessage(message);
+            } 
         }
     }
     
