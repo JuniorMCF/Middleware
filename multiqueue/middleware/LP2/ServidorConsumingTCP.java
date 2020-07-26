@@ -13,7 +13,7 @@ public class ServidorConsumingTCP {
     //int nrcli = 0;
     int nrcli;
 
-    public static final int SERVERPORT = 4444;
+    public static final int SERVERPORT = 9900;
     private OnMessageReceived messageListener = null;
     private boolean running = false;
     ServidorConsumingTCPThread[] sendclis = new ServidorConsumingTCPThread[10];
@@ -33,9 +33,10 @@ public class ServidorConsumingTCP {
     }
     
     public void sendMessageTCPServer(String message){
-        for (int i = 0; i <= Global.nrcli; i++) {
+        for (int i = 1; i <= Global.nrcli; i++) {
             if(message.contains(String.valueOf(i))){
-                message = message.replaceAll(String.valueOf(i),"");
+                message = message.substring(2);
+                //message = message.replaceAll(".","");
                 sendclis[i].sendMessage(message);
             } 
         }

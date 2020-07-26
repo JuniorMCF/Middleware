@@ -34,7 +34,7 @@ public class Middleware {
 		productor = new Producing(new Producing.OnMessageReceived() {
 			@Override
 			public void guardarEnCola(String message) {
-				for(int i=0; i<= Global.nrcli;i++)
+				for(int i=1; i<= Global.nrcli;i++)
 					if(message.contains(String.valueOf(i)))	
 						Global.colas[i].addElement(message);
 			}

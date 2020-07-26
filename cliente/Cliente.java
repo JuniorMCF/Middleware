@@ -8,6 +8,7 @@ package cliente;
 
 import java.util.Scanner;
 import cliente.TCPCliente;
+//import cliente.rc4;
 
 
 public class Cliente {
@@ -54,7 +55,10 @@ public class Cliente {
 		if(llego != null){
 			System.out.flush();
 			if(llego.equals("Cola vacia")) System.out.println(llego);
-			else System.out.println("Mensaje desde el servidor python a traves del middleware: " + llego);
+			else {
+				//decryptRC4("6e6f742d736f2d72616e646f6d2d6b6579",llego);
+				System.out.println("Mensaje desde el servidor python a traves del middleware: " + llego);
+			}
 		}
 	}
 
