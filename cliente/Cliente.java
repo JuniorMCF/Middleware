@@ -26,7 +26,7 @@ public class Cliente {
 
 				@Override
 				public void run() {
-					mTcpClient = new TCPCliente("192.168.1.12",
+					mTcpClient = new TCPCliente("192.168.0.106",
 						new TCPCliente.OnMessageReceived(){
 							@Override
 							public void messageReceived(String message){
@@ -49,10 +49,10 @@ public class Cliente {
 	}
 
 	void ClienteRecibe(String llego){
-		System.out.println("Mensaje desde el servidor python a traves del middleware: " + llego);
-                
 		if(llego != null){
 			System.out.flush();
+			if(llego.equals("Cola vacia")) System.out.println(llego);
+			else System.out.println("Mensaje desde el servidor python a traves del middleware: " + llego);
 		}
 	}
 

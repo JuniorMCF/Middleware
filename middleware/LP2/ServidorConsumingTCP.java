@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import middleware.Global;
+import middleware.Cola;
 
 public class ServidorConsumingTCP {
     private String message;
     
-    int nrcli = 0;
+    //int nrcli = 0;
+    int nrcli;
 
     public static final int SERVERPORT = 4444;
     private OnMessageReceived messageListener = null;
@@ -20,7 +22,6 @@ public class ServidorConsumingTCP {
     BufferedReader in;
     
     ServerSocket serverSocket;
-    //BattleCity bc = new BattleCity(nrcli);
 
     //el constructor pide una interface OnMessageReceived
     public ServidorConsumingTCP(OnMessageReceived messageListener) {
@@ -32,8 +33,8 @@ public class ServidorConsumingTCP {
     }
     
     public void sendMessageTCPServer(String message){
-        for (int i = 1; i <= nrcli; i++) {
-            sendclis[i].sendMessage(message);
+        for (int i = 0; i <= Global.nrcli; i++) {
+            if(message.contains(String.valueOf(i))) sendclis[i].sendMessage(message);
         }
     }
     
@@ -48,6 +49,8 @@ public class ServidorConsumingTCP {
                 Socket client = serverSocket.accept();
                 System.out.println("Middleware Consuming"+"S: Receiving...");
                 nrcli++;
+                Global.nrcli = nrcli;
+                Global.colas[nrcli] = new Cola();
                 System.out.println("Conexion establecida con el CONSUMIDOR " + nrcli);
                 sendclis[nrcli] = new ServidorConsumingTCPThread(client,this,nrcli,sendclis);
                 Thread t = new Thread(sendclis[nrcli]);

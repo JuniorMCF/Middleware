@@ -12,26 +12,23 @@ public class ServidorConsuming {
     }
 
     void iniciar() throws InterruptedException {
-
         new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mTcpServer = new ServidorConsumingTCP(
-                                new ServidorConsumingTCP.OnMessageReceived() {
-                                    @Override
-                                    public void messageReceived(String message) {
-                                        synchronized (this) {
-                                            ServidorRecibe(message);
-                                        }
-
+            new Runnable() {
+                @Override
+                public void run() {
+                    mTcpServer = new ServidorConsumingTCP(
+                            new ServidorConsumingTCP.OnMessageReceived() {
+                                @Override
+                                public void messageReceived(String message) {
+                                    synchronized (this) {
+                                        ServidorRecibe(message);
                                     }
-
                                 }
-                        );
-                        mTcpServer.run();
-                    }
+                            }
+                    );
+                    mTcpServer.run();
                 }
+            }
         ).start();
 
         Thread.sleep(5000);
@@ -46,7 +43,6 @@ public class ServidorConsuming {
 
         try {
             System.out.println("Desde los clientes" + llego);
-
         } catch (NumberFormatException e) {
             // bla
         }
