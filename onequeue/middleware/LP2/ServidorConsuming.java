@@ -1,6 +1,7 @@
 package middleware.LP2;
 
 import java.util.Scanner;
+import middleware.Global;
 
 public class ServidorConsuming {
 
@@ -32,7 +33,7 @@ public class ServidorConsuming {
         ).start();
 
         Thread.sleep(5000);
-        while (true) {
+        while (Global.nrcli>=1) {
             Thread.sleep(2000);
             desencolarListener.sacarDeCola();
         }

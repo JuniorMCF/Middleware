@@ -16,7 +16,7 @@ public class ServidorConsumingTCP {
     public static final int SERVERPORT = 9900;
     private OnMessageReceived messageListener = null;
     private boolean running = false;
-    ServidorConsumingTCPThread[] sendclis = new ServidorConsumingTCPThread[10];
+    ServidorConsumingTCPThread[] sendclis = new ServidorConsumingTCPThread[Global.maxcli];
 
     PrintWriter mOut;
     BufferedReader in;

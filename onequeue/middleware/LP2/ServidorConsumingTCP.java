@@ -16,7 +16,7 @@ public class ServidorConsumingTCP {
     public static final int SERVERPORT = 9900;
     private OnMessageReceived messageListener = null;
     private boolean running = false;
-    ServidorConsumingTCPThread[] sendclis = new ServidorConsumingTCPThread[10];
+    ServidorConsumingTCPThread[] sendclis = new ServidorConsumingTCPThread[Global.maxcli];
 
     PrintWriter mOut;
     BufferedReader in;
@@ -48,7 +48,7 @@ public class ServidorConsumingTCP {
                 Socket client = serverSocket.accept();
                 System.out.println("Middleware Consuming"+"S: Receiving...");
                 nrcli++;
-                //Global.nrcli = nrcli;
+                Global.nrcli = nrcli;
                 //Global.colas[nrcli] = new Cola();
                 System.out.println("Conexion establecida con el CONSUMIDOR " + nrcli);
                 sendclis[nrcli] = new ServidorConsumingTCPThread(client,this,nrcli,sendclis);

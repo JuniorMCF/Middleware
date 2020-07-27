@@ -21,7 +21,7 @@ import java.net.Socket;
 public class TCPCliente {
     private String servermsj;
     public  String SERVERIP;
-    public static final int SERVERPORT = 4444;
+    public static final int SERVERPORT = 9900;
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
 
