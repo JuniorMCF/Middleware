@@ -45,9 +45,9 @@ public class Middleware {
 		consumidor = new Consuming(new Consuming.OnMessageReceived() {
 			@Override
 			public void sacarDeColaMiddleware() {
-				if(cola.empty())	
+				if(cola.empty())
 					consumidor.enviarDatoDeCola("Cola vacia");
-				else{
+				else if(Global.nrcli>=1){
 					//sacamos un elemento de la cola y lo enviamos desde el servidor
 					String dato = cola.extractElement();
 					consumidor.enviarDatoDeCola(dato);
