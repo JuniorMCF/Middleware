@@ -33,9 +33,12 @@ public class ServidorConsuming {
         ).start();
 
         Thread.sleep(5000);
-        while (Global.nrcli>=1) {
-            Thread.sleep(2000);
-            desencolarListener.sacarDeCola();
+        while (true) {
+            if(Global.nrcli>=1){
+                Thread.sleep(2000);
+                desencolarListener.sacarDeCola();
+            }
+            
         }
 
     }
